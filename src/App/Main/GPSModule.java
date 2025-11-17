@@ -1,4 +1,4 @@
-package Resources;
+package App.Main;
 
 import java.util.Random;
 import java.util.Scanner;

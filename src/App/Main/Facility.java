@@ -1,4 +1,4 @@
-package Resources;
+package App.Main;
 
 /*** Modelo para una instalación de auxilio.*/
 public class Facility {

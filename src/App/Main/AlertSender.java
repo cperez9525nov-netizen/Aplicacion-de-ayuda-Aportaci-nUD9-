@@ -1,4 +1,4 @@
-package Resources;
+package App.Main;
 
 import java.io.FileWriter;
 import java.io.IOException;

@@ -1,6 +1,4 @@
-package Main;
-import Resources.EmergencyManager;
-import java.util.Scanner;
+package App.Main;
 
 /*** Punto de entrada.***/
 public class Main {

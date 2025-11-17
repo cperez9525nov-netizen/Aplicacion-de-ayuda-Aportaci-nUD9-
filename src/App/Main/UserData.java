@@ -1,4 +1,4 @@
-package Resources;
+package App.Main;
 
 public class UserData {
     private String nombre;
