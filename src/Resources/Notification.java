@@ -1,4 +1,4 @@
-package App.Main;
+package Resources;
 import java.time.LocalDateTime;
 
 public class Notification {
