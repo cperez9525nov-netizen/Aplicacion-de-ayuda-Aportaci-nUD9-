@@ -1,4 +1,4 @@
-package App.Main;
+package Resources;
 
 public class EmergencyEvent {
     private String tipoEmergencia;

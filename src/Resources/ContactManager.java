@@ -1,5 +1,5 @@
 
-package App.Main;
+package Resources;
 
 import java.io.BufferedReader;
 import java.io.File;

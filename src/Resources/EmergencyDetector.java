@@ -1,4 +1,4 @@
-package App.Main;
+package Resources;
 import java.util.Scanner;
 
 public class EmergencyDetector {
