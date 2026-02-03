@@ -1,4 +1,4 @@
-package App.Main;
+package Resources;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Timer;

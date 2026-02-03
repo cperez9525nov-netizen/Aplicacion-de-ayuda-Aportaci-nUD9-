@@ -1,4 +1,8 @@
 package App.Main;
+import Resources.EmergencyManager;
+import Resources.Notification;
+import Resources.NotificationScheduler;
+
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
