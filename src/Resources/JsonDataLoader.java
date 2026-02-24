@@ -1,54 +1,20 @@
 package Resources;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JsonDataLoader {
-
-    public static List<EmergencyCenter> loadCenters(String path) {
-        List<EmergencyCenter> centers = new ArrayList<>();
-
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-            String line;
-            String name = "", type = "";
-            double lat = 0, lon = 0;
-
-            while ((line = br.readLine()) != null) {
-                line = line.trim();
-
-                if (line.contains("\"name\"")) {
-                    name = extractString(line);
-                }
-                if (line.contains("\"type\"")) {
-                    type = extractString(line);
-                }
-                if (line.contains("\"latitude\"")) {
-                    lat = extractDouble(line);
-                }
-                if (line.contains("\"longitude\"")) {
-                    lon = extractDouble(line);
-                }
-
-                if (!name.isEmpty() && !type.isEmpty() && lat != 0 && lon != 0) {
-                    centers.add(new EmergencyCenter(name, type, lat, lon));
-                    name = ""; type = ""; lat = 0; lon = 0;
-                }
-            }
-
+    public static List<CentersPOJO> loadCenters(String path) {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            // ObjectMapper hace TODO el trabajo de lectura, split, trim y parseo por ti
+            return mapper.readValue(new File(path), new TypeReference<List<CentersPOJO>>(){});
         } catch (Exception e) {
-            System.out.println("Error leyendo JSON: " + e.getMessage());
+            System.out.println("Error leyendo JSON con Jackson: " + e.getMessage());
+            return new ArrayList<>();
         }
-
-        return centers;
-    }
-
-    private static String extractString(String line) {
-        return line.split(":")[1].replace("\"", "").replace(",", "").trim();
-    }
-
-    private static double extractDouble(String line) {
-        return Double.parseDouble(line.split(":")[1].replace(",", "").trim());
     }
 }
